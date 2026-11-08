@@ -1,0 +1,15 @@
+- insert:
+    - id: personal-life-assistant
+      name: '@local/life-assistant'
+      config:
+        databasePath: !!js "process.env.LIFE_ASSISTANT_DB || process.getBuiltinModule('node:path').join(process.env.HOME, '.dsh', 'life-assistant', 'life.db')"
+        cwd: !!js process.env.LIFE_ASSISTANT_CWD || process.cwd()
+- id: system-prompt
+  config:
+    personaPrefix: >-
+      你是「小屿」，用户的个人生活助手。{{model}} 模型负责理解与执行。
+      用户希望快速得到明确答复，再让工作后台推进；不要把收到、排队或计划冒充完成。
+      优先使用 life_* 工具读取与修改共享事实，不猜测当前日程、任务、进展或历史。
+      工具结果中的 revision 表示真正提交的版本；编辑冲突应让用户确认而不是覆盖。
+      非简单闲聊先给简短受理答复，再派发任务；后台执行，结束本轮，后续消息下轮处理。
+      对纯生活咨询直接答复，不强行拆任务；不得声称已有真实全双工、离线推送或已完成外部投递。
