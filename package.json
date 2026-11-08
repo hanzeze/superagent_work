@@ -1,0 +1,42 @@
+{
+  "name": "personal-agent-bootstrap-6c64a47c17ba",
+  "version": "1.0.0",
+  "description": "This repository is the work target for dsh-superagent.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "node packages/life-assistant/build.mjs",
+    "typecheck": "tsc --noEmit -p packages/life-assistant/tsconfig.json",
+    "test": "node --test --experimental-strip-types packages/life-assistant/tests/store.test.ts",
+    "check": "npm run typecheck && npm test && npm run build",
+    "start": "dsh --profile personal -- --port 8877"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@deepseek-ai/cordis": "4.0.5",
+    "@deepseek-ai/dsh-api-gateway": "0.2.1-rc.3",
+    "@deepseek-ai/dsh-api-session-controller": "0.2.1-rc.3",
+    "@deepseek-ai/dsh-client-ui-layout": "0.2.1-rc.3",
+    "@deepseek-ai/dsh-client-ui-renderer": "0.2.1-rc.3",
+    "@deepseek-ai/dsh-client-ui-sidebar": "0.2.1-rc.3",
+    "@deepseek-ai/dsh-client-ui-slots": "0.0.1-rc.1",
+    "@deepseek-ai/dsh-schedule": "0.2.1-rc.3",
+    "@deepseek-ai/dsh-tools": "0.2.1-rc.3",
+    "@deepseek-ai/dsh-typert-protocol": "0.2.1-rc.3",
+    "@deepseek-ai/schemastery": "3.18.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "22.19.1",
+    "@types/react": "18.3.27",
+    "esbuild": "0.28.2",
+    "playwright": "1.58.2",
+    "typescript": "5.9.3"
+  }
+}
